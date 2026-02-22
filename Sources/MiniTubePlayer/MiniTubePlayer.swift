@@ -873,9 +873,9 @@ final class WindowController {
                 forName: NSWindow.didResizeNotification,
                 object: window,
                 queue: .main
-            ) { [weak self] _ in
+            ) { _ in
                 Task { @MainActor in
-                    self?.syncCurrentWindowSizeState()
+                    WindowController.shared.syncCurrentWindowSizeState()
                 }
             }
         }
