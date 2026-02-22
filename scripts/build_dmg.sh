@@ -94,6 +94,7 @@ EOF
 
 if [[ -n "${CODESIGN_IDENTITY:-}" ]]; then
   codesign --force --deep --options runtime --timestamp --sign "$CODESIGN_IDENTITY" "$APP_DIR"
+  codesign --verify --deep --strict --verbose=2 "$APP_DIR"
 fi
 
 mkdir -p "$STAGING_DIR"
@@ -106,5 +107,10 @@ hdiutil create \
   -ov \
   -format UDZO \
   "$DMG_PATH" >/dev/null
+
+if [[ -n "${CODESIGN_IDENTITY:-}" ]]; then
+  codesign --force --timestamp --sign "$CODESIGN_IDENTITY" "$DMG_PATH"
+  codesign --verify --verbose=2 "$DMG_PATH"
+fi
 
 echo "Created DMG: $DMG_PATH"
