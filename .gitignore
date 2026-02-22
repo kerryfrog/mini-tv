@@ -19,3 +19,7 @@ DerivedData/
 
 # Local root asset (project uses Resources/appicon.png)
 /appicon.png
+
+# Distribution output
+/dist/
+*.dmg
