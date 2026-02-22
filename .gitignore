@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager
+/.build/
+/Packages
+/.swiftpm/configuration/registries.json
+/.swiftpm/configuration/security.json
+/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+/.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# Xcode user/local files
+xcuserdata/
+DerivedData/
+*.xcuserstate
+
+# Local secrets
+.netrc
+
+# Local root asset (project uses Resources/appicon.png)
+/appicon.png
